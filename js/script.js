@@ -103,11 +103,30 @@ function printQuote() {
 }
 
 printQuote();
+
+/*
+ * Function that generates a random background color when the page is refreshed or when the "show another quote" button is clicked.
+ */
+function randomBackground() {
+  let red = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let backgroundColor = `rgb(${red},${blue},${green})`;
+
+  if (printQuote()) {
+    document.body.style.backgroundColor = backgroundColor;
+  }
+  document.querySelector("body").style.backgroundColor = backgroundColor;
+}
+randomBackground();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
-
 document
   .getElementById("load-quote")
   .addEventListener("click", printQuote, false);
+
+document
+  .getElementById("load-quote")
+  .addEventListener("click", randomBackground, false);
